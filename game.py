@@ -6,8 +6,8 @@ class TicTacToeAI:
     def __init__(self):
         self.window = tk.Tk()
         self.window.title("Human vs AI Tic Tac Toe")
-        self.current_player = "X" # Human is X
-        self.ai_player = "O"      # Computer is O
+        self.current_player = "X" 
+        self.ai_player = "O"      
         self.board = [""] * 9
         
         self.buttons = []
@@ -21,18 +21,18 @@ class TicTacToeAI:
         if self.board[index] == "" and self.current_player == "X":
             self.make_move(index, "X")
             if not self.is_game_over():
-                self.window.after(500, self.ai_move) # AI moves after 0.5 seconds
+                self.window.after(500, self.ai_move) 
 
     def ai_move(self):
         best_score = -math.inf
         move = None
         
-        # Check every available spot
+        
         for i in range(9):
             if self.board[i] == "":
                 self.board[i] = self.ai_player
                 score = self.minimax(self.board, 0, False)
-                self.board[i] = "" # Undo move
+                self.board[i] = "" 
                 if score > best_score:
                     best_score = score
                     move = i
@@ -42,7 +42,7 @@ class TicTacToeAI:
             self.is_game_over()
 
     def minimax(self, board, depth, is_maximizing):
-        # Base cases: check for terminal states
+        
         if self.check_win_logic(board, "O"): return 1
         if self.check_win_logic(board, "X"): return -1
         if "" not in board: return 0
@@ -72,16 +72,16 @@ class TicTacToeAI:
         self.buttons[index].config(text=player, fg=color)
 
     def check_win_logic(self, board_state, player):
-        # We renamed 'b' to 'board_state' to be more explicit
+        
         wins = [(0,1,2), (3,4,5), (6,7,8), (0,3,6), (1,4,7), (2,5,8), (0,4,8), (2,4,6)]
         for a, b, c in wins:
-            # Check if the board at these indices matches the player
+            
             if board_state[a] == board_state[b] == board_state[c] == player:
                 return True
         return False
 
     def is_game_over(self):
-        # We must pass self.board (the list) into the logic function
+        
         if self.check_win_logic(self.board, "X"):
             messagebox.showinfo("Result", "You won!")
             self.reset()
