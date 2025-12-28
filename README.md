@@ -1,8 +1,8 @@
 # TIC TAC TOE using Minimax algorithm
 
-GUI built with Tkinter.
-Python implementation.
-AI opponent using the Minimax algorithm.
+    GUI built with Tkinter.
+    Python implementation.
+    AI opponent using the Minimax algorithm.
 
 ## Logic Overview
 
