@@ -25,7 +25,7 @@ class TicTacToePro:
                  bg='#2c3e50', font=('Arial', 10, 'bold')).pack(side=tk.LEFT, padx=5)
         
         self.diff_menu = tk.OptionMenu(self.header_frame, self.difficulty, "Easy", "Medium", "Hard")
-        self.diff_menu.config(bg='#34495e', fg='white', highlightthickness=0)
+        self.diff_menu.config(bg='#34496e', fg='white', highlightthickness=0)
         self.diff_menu.pack(side=tk.LEFT)
 
         
@@ -34,7 +34,7 @@ class TicTacToePro:
         
         self.buttons = []
         for i in range(9):
-            btn = tk.Button(self.grid_frame, text="", font=('Arial', 24, 'bold'), width=4, height=2,
+            btn = tk.Button(self.grid_frame, text="", font=('Times New Roman', 24, 'bold'), width=4, height=2,
                             bg='#ecf0f1', relief='flat', activebackground='#bdc3c7',
                             command=lambda i=i: self.human_move(i))
             btn.grid(row=i // 3, column=i % 3, padx=5, pady=5)
@@ -123,9 +123,9 @@ class TicTacToePro:
 
     def is_game_over(self):
         winner_text = None
-        if self.check_win_logic(self.board, "X"): winner_text = "You Win!"
-        elif self.check_win_logic(self.board, "O"): winner_text = "AI Wins!"
-        elif "" not in self.board: winner_text = "It's a Draw!"
+        if self.check_win_logic(self.board, "X"): winner_text = "You Win!!"
+        elif self.check_win_logic(self.board, "O"): winner_text = "AI Wins!!"
+        elif "" not in self.board: winner_text = "It's a Draw, try again!"
 
         if winner_text:
             messagebox.showinfo("Game Over", winner_text)
